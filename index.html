@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+
+<title>Retro Block</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- SPLASH -->
+
+<div id="splash">
+
+    <div class="fallingBlocks" id="fallingBlocks"></div>
+
+    <div class="splashContent">
+
+        <div class="retroLogo">
+            RETRO BLOCK
+        </div>
+
+        <div class="splashSub">
+            90'S ARCADE EDITION
+        </div>
+
+        <div class="pressStart">
+            INSERT COIN • GET READY
+        </div>
+
+        <div class="loading">
+            <div class="loadingBar"></div>
+        </div>
+
+    </div>
+
+    <div class="crt"></div>
+</div>
+
+<!-- START MENU -->
+
+<div id="startMenu">
+
+    <div class="menuLogo">
+        RETRO BLOCK
+    </div>
+
+    <div class="menuSub">
+        90'S HANDHELD ARCADE
+    </div>
+
+    <div class="menuButtons">
+
+        <button class="menuButton"
+                onclick="newGame()">
+            ▶ START GAME
+        </button>
+
+        <button class="menuButton"
+                onclick="fullScreen()">
+            ⛶ FULL SCREEN
+        </button>
+
+    </div>
+
+</div>
+
+<!-- GAME -->
+
+<div id="app">
+
+<header>
+
+    <div class="title">
+        RETRO BLOCK
+        <small>90'S HANDHELD</small>
+    </div>
+
+    <div class="topBtns">
+
+        <button onclick="pauseGame()">Ⅱ</button>
+        <button onclick="restart()">↻</button>
+        <button onclick="fullScreen()">⛶</button>
+
+    </div>
+
+</header>
+
+<div class="stats">
+
+    <div class="stat">
+        <span>SCORE</span>
+        <b id="score">000000</b>
+    </div>
+
+    <div class="stat">
+        <span>HI</span>
+        <b id="best">000000</b>
+    </div>
+
+    <div class="stat">
+        <span>LINES</span>
+        <b id="lines">000</b>
+    </div>
+
+    <div class="stat">
+        <span>LEVEL</span>
+        <b id="level">01</b>
+    </div>
+
+</div>
+
+<div class="gameArea">
+
+    <div class="side">
+
+        <div class="panel">
+            <h3>NEXT</h3>
+            <canvas id="next" class="mini"></canvas>
+        </div>
+
+        <div class="panel">
+            <h3>HOLD</h3>
+            <canvas id="hold" class="mini"></canvas>
+        </div>
+
+    </div>
+
+    <div id="boardWrap">
+
+        <canvas id="board"></canvas>
+
+        <div id="popup"></div>
+
+        <!-- GAME OVER / PAUSE -->
+
+        <div id="overlay">
+
+            <h1 id="overlayTitle">
+                PAUSED
+            </h1>
+
+            <p id="overlayText">
+                GAME PAUSED
+            </p>
+
+            <button class="overlayBtn"
+                    onclick="overlayAction()">
+                CONTINUE
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- REMOTE -->
+
+<div class="remote">
+
+    <div class="remoteTop">
+        <span>RETRO BLOCK CONTROL</span>
+        <span class="led"></span>
+    </div>
+
+    <div class="remoteControls">
+
+        <div class="dpad">
+
+            <!-- UP = ROTATE -->
+
+            <button class="d up"
+                    onclick="rotateRight()">
+                ▲
+            </button>
+
+            <button class="d left"
+                    onclick="move(-1)">
+                ◀
+            </button>
+
+            <div class="d center"></div>
+
+            <button class="d right"
+                    onclick="move(1)">
+                ▶
+            </button>
+
+            <button class="d down"
+                    onclick="softDrop()">
+                ▼
+            </button>
+
+        </div>
+
+        <div class="centerRemote">
+
+            <div class="selectRow">
+
+                <button class="long"
+                        onclick="holdPiece()">
+                    SELECT
+                </button>
+
+                <button class="long"
+                        onclick="pauseGame()">
+                    START
+                </button>
+
+            </div>
+
+            <div class="badge">
+                RETRO BLOCK
+            </div>
+
+        </div>
+
+        <div class="actions">
+
+            <button class="action A"
+                    onclick="hardDrop()">
+                A
+            </button>
+
+            <button class="action B"
+                    onclick="rotateLeft()">
+                B
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="remoteHint">
+        D-PAD MOVE • A DROP • B ROTATE • SELECT HOLD • START PAUSE
+    </div>
+
+    <div class="speaker">
+        <i></i><i></i><i></i>
+        <i></i><i></i><i></i>
+    </div>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
